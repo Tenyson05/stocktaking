@@ -15,6 +15,7 @@ target/
 
 ### Local configuration files ###
 application.properties
+local.properties
 
 ### IntelliJ IDEA ###
 .idea
